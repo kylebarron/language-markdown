@@ -8,6 +8,7 @@
     "mdown",
     "mkd",
     "mkdown",
+    "pmd",
     "rmd",
     "ron",
     "emdee",
@@ -1521,6 +1522,26 @@
               "name": "punctuation.md"
             }
           }
+        },
+        {
+          "begin": "\\<\\%=?",
+          "beginCaptures": {
+            "0": {
+              "name": "markup.bold.md"
+            }
+          },
+          "end": "\\%\\>",
+          "endCaptures": {
+            "0": {
+              "name": "markup.bold.md"
+            }
+          },
+          "contentName": "source.embedded.python",
+          "patterns": [
+            {
+              "include": "source.python"
+            }
+          ]
         }
       ]
     },

@@ -9,5 +9,17 @@ patterns: [
     captures:
       1: name: 'punctuation.md'
       2: name: 'punctuation.md'
+  },
+  {
+  begin: '\\<\\%=?'
+  beginCaptures:
+    0: name: 'markup.bold.md'
+  end: '\\%\\>'
+  endCaptures:
+    0: name: 'markup.bold.md'
+  contentName: 'source.embedded.python'
+  patterns: [
+    { 'include': 'source.python' }
+  ]
   }
 ]
