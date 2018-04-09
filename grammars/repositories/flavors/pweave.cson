@@ -1,0 +1,30 @@
+# http://mpastell.com/pweave/
+
+key: 'pweave'
+patterns: [
+  {
+    begin: '(?x)
+      (```)(
+        (\\{)?(python)(?:\\s)?
+        (?:([a-zA-Z0-9|_|-]*)(?=[\\s|,|}])\\s?)?
+        ([^\\}]*)?
+        (\\})?
+      )
+    '
+    end: '^(\\1)$'
+
+    name: 'fenced.code.md'
+    contentName: 'source.embedded.python'
+    patterns: [{ include: 'source.python' }]
+
+    beginCaptures:
+      1: name: 'punctuation.md'
+      3: name: 'punctuation.md'
+      4: name: 'language.constant.md'
+      5: name: 'label.string.md'
+      6: patterns: [{ include: 'source.python' }]
+      7: name: 'punctuation.md'
+    endCaptures:
+      1: name: 'punctuation.md'
+  }
+]
