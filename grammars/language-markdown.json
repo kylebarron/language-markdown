@@ -205,7 +205,7 @@
     "fenced-code": {
       "patterns": [
         {
-          "begin": "^\\s{0,3}([`]{3,})",
+          "begin": "^\\s{0,3}([`]{3,})$",
           "beginCaptures": {
             "1": {
               "name": "punctuation.md"
@@ -221,7 +221,7 @@
           "contentName": "source.embedded"
         },
         {
-          "begin": "^\\s{0,3}([~]{3,})",
+          "begin": "^\\s{0,3}([~]{3,})$",
           "beginCaptures": {
             "1": {
               "name": "punctuation.md"
@@ -4053,6 +4053,46 @@
           "patterns": [
             {
               "include": "text.xml"
+            }
+          ]
+        },
+        {
+          "begin": "^\\s*([`~]{3,})\\s*(\\{?)((?:\\.?)(?:yaml))(?=( |$|{))\\s*(\\{?)([^`\\{\\}]*)(\\}?)$",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.md"
+            },
+            "2": {
+              "name": "punctuation.md"
+            },
+            "3": {
+              "name": "language.constant.md"
+            },
+            "5": {
+              "name": "punctuation.md"
+            },
+            "6": {
+              "patterns": [
+                {
+                  "include": "#special-attribute-elements"
+                }
+              ]
+            },
+            "7": {
+              "name": "punctuation.md"
+            }
+          },
+          "end": "^\\s*(\\1)$",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.md"
+            }
+          },
+          "name": "fenced.code.md",
+          "contentName": "source.embedded.yaml",
+          "patterns": [
+            {
+              "include": "source.yaml"
             }
           ]
         },
